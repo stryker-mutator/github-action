@@ -1,3 +1,3 @@
-FROM ghcr.io/tom171296/run-stryker-net:main
+FROM ghcr.io/stryker-mutator/github-action:main
 
 ENTRYPOINT ["/entrypoint.sh"]
