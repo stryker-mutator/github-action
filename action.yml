@@ -16,5 +16,5 @@ inputs:
 runs:
   using: 'composite'
   steps:
-    - run: docker run --rm -it $(docker build -q -f run-stryker-net.dockerfile) ${{ inputs.testProject }} ${{ inputs.breakAt }}
+    - run: docker build -f run-stryker-net.dockerfile .
       shell: bash
