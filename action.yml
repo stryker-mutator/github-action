@@ -5,9 +5,6 @@ branding:
   icon: 'zap'
   color: 'red'
 inputs:
-  strykerVersion:
-    description: "The version of Stryker to use (e.g. Stryker.NET)"
-    required: true
   testProject:
     description: "The path to the test project directory (e.g. BusinessLogic.Test/)"
     required: true
@@ -17,9 +14,16 @@ inputs:
     default: "0"
 
 runs:
-  using: 'docker'
-  image: 'run-stryker-net.dockerfile'
-  args:
-    - ${{ inputs.testProject }}
-    - ${{ inputs.breakAt }}
-    - STRYKER_VERSION=Stryker.NET
+  using: "composite"
+  steps:
+    - name: Run Docker image
+      run: docker run ghcr.io/stryker-mutator/github-action:main
+      shell: bash
+
+
+  # using: 'docker'
+  # image: 'run-stryker-net.dockerfile'
+  # args:
+  #   - ${{ inputs.testProject }}
+  #   - ${{ inputs.breakAt }}
+  #   - STRYKER_VERSION=Stryker.NET
