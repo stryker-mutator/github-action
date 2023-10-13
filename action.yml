@@ -17,7 +17,7 @@ runs:
   using: "composite"
   steps:
     - name: LS
-      run: ls -la
+      run: echo ${{ github.workspace }}
       shell: bash
     
     - name: Run Docker image
@@ -27,7 +27,7 @@ runs:
           ghcr.io/stryker-mutator/github-action:11-support-strykerjs-to-be-ran-with-this-action \
           ${{ inputs.testProject }} \
           ${{ inputs.breakAt }}  \
-          -v ${{ github.workspace }}:/workspace \
+          --volume="${{ github.workspace }}:/workspace" \
 
 
   # using: 'docker'
