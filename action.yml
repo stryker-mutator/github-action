@@ -27,7 +27,7 @@ runs:
           ghcr.io/stryker-mutator/github-action:11-support-strykerjs-to-be-ran-with-this-action \
           ${{ inputs.testProject }} \
           ${{ inputs.breakAt }}  \
-          --mount source=${{ github.workspace }},target=/ \
+          -v ${{ github.workspace }}:/ 
 
 
   # using: 'docker'
