@@ -5,6 +5,9 @@ branding:
   icon: 'zap'
   color: 'red'
 inputs:
+  strykerVersion:
+    description: "The version of Stryker to use (e.g. Stryker.NET)"
+    required: true
   testProject:
     description: "The path to the test project directory (e.g. BusinessLogic.Test/)"
     required: true
@@ -14,7 +17,8 @@ inputs:
     default: "0"
 
 runs:
-  using: 'composite'
-  steps:
-    - run: docker build -f run-stryker-net.dockerfile .
-      shell: bash
+  using: 'docker'
+  image: 'run-stryker-net.dockerfile --build-arg STRYKER_VERSION=${{ inputs.strykerVersion }}'
+  args:
+    - ${{ inputs.testProject }}
+    - ${{ inputs.breakAt }}
