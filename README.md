@@ -1,39 +1,26 @@
-# Run Stryker
+# Run Stryker GitHub Action
 
 This action runs [Stryker.NET](https://stryker-mutator.io/docs/stryker-net/introduction/) on your specified test project.
 
-# Usage
+## Inputs
 
-Currently it's only possible to run Stryker.Net. Future plans include running Stryker.JS and Stryker4S.
-
-## Running Stryker
-
-### Inputs
-
-#### `testProject`
+### `testProject`
 
 **Required** The path to the directory of the test project that needs to be tested by Stryker. No default.
 
-#### `breakAt`
+### `breakAt`
 
 **Optional** Set the minimal mutation score threshold for the action to succeed. If the threshold is not met, the action will fail the pipeline. The default value is `0`. 
 
-### Outputs
-This section describes the outputs of this action.
+## Outputs
 
-#### HTML report
-It is possible to export the generated HTML report from the Stryker run.
+### `html-report`
 
-``` yaml
-uses: actions/upload-artifact@v3
-  with:
-    name: html-report
-    path: ${{github.workspace}}/BusinessLogic.Test/StrykerOutput/**/**/*.html
-```
+This action generates an HTML report from the Stryker run, which can be uploaded as an artifact.
 
 ## Example usage
 
-``` yaml
+```yaml
 # File: .github/workflows/mutation-test.yaml
 
 on:
@@ -54,7 +41,3 @@ jobs:
       with:
         name: html-report
         path: ${{github.workspace}}/BusinessLogic.Test/StrykerOutput/**/**/*.html
-```
-
-## Stryker.NET
-This section describes some specific configuration that is used for Stryker.NET.
