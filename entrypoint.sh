@@ -3,6 +3,8 @@ testProject=$1
 
 export PATH="$PATH:/root/.dotnet/tools"
 
+cd /
+
 echo "Directory listing"
 ls
 
