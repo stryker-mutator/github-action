@@ -16,6 +16,10 @@ inputs:
 runs:
   using: "composite"
   steps:
+    - name: LS
+      run: ls -la
+      shell: bash
+    
     - name: Run Docker image
       shell: bash
       run: | 
