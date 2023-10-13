@@ -27,12 +27,4 @@ runs:
           ghcr.io/stryker-mutator/github-action:11-support-strykerjs-to-be-ran-with-this-action \
           ${{ inputs.testProject }} \
           ${{ inputs.breakAt }}  \
-          --volume="${{ github.workspace }}:/workspace" \
-
-
-  # using: 'docker'
-  # image: 'run-stryker-net.dockerfile'
-  # args:
-  #   - ${{ inputs.testProject }}
-  #   - ${{ inputs.breakAt }}
-  #   - STRYKER_VERSION=Stryker.NET
+          -v ${{ github.workspace }}:/workspace \
