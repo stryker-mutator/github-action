@@ -17,6 +17,7 @@ runs:
   using: "composite"
   steps:
     - name: Run Docker image
+      shell: bash
       run: docker run \ 
         ghcr.io/stryker-mutator/github-action:11-support-strykerjs-to-be-ran-with-this-action \
           ${{ inputs.testProject }} \
