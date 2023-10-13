@@ -18,7 +18,7 @@ inputs:
 
 runs:
   using: 'docker'
-  image: 'run-stryker-net.dockerfile --build-arg STRYKER_VERSION=${{ inputs.strykerVersion }}'
+  image: 'run-stryker-net.dockerfile --build-arg STRYKER_VERSION=Stryker.NET'
   args:
     - ${{ inputs.testProject }}
     - ${{ inputs.breakAt }}
