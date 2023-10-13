@@ -17,8 +17,12 @@ runs:
   using: "composite"
   steps:
     - name: Run Docker image
-      run: docker run ghcr.io/stryker-mutator/github-action:11-support-strykerjs-to-be-ran-with-this-action ${{github.workspace}}/${{ inputs.testProject }} ${{ inputs.breakAt }} 
-      shell: bash
+      run: docker run \ 
+        ghcr.io/stryker-mutator/github-action:11-support-strykerjs-to-be-ran-with-this-action \
+          ${{ inputs.testProject }} \
+          ${{ inputs.breakAt }}  \
+        --mount source=${{ github.workspace }},target=/app \
+
 
   # using: 'docker'
   # image: 'run-stryker-net.dockerfile'
