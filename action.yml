@@ -1,9 +1,9 @@
-name: "Run Stryker.NET"
+name: "Run Stryker"
 author: "Tom van den Berg"
-description: "Github action to run Stryker.NET"
+description: "Github action to run Stryker to validate your tests 👽👾"
 branding:
   icon: 'zap'
-  color: 'green'
+  color: 'red'
 inputs:
   testProject:
     description: "The path to the test project directory (e.g. BusinessLogic.Test/)"
