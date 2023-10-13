@@ -16,12 +16,12 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
     - name: Run Docker image
-      run: docker run ghcr.io/stryker-mutator/github-action:11-support-strykerjs-to-be-ran-with-this-action ${{ inputs.testProject }} ${{ inputs.breakAt }} 
+      run: docker run ghcr.io/stryker-mutator/github-action:11-support-strykerjs-to-be-ran-with-this-action ${{github.workspace}}/${{ inputs.testProject }} ${{ inputs.breakAt }} 
       shell: bash
 
+
+${{ github.workspace }}
 
   # using: 'docker'
   # image: 'run-stryker-net.dockerfile'
