@@ -5,7 +5,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository }}
+  IMAGE_NAME: RUN_STRYKER_NET
 
 jobs:
   docker:
@@ -35,6 +35,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
+          file: ./Stryker_NET.Dockerfile
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
