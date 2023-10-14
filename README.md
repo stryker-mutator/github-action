@@ -4,7 +4,7 @@ This action runs [Stryker.NET](https://stryker-mutator.io/docs/stryker-net/intro
 
 ## Inputs
 
-### `strykerVersion`
+### `tool`
 
 **Required** The version of stryker that needs to be ran. accepted values: 'Stryker.NET'
 

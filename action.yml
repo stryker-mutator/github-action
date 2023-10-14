@@ -5,7 +5,7 @@ branding:
   icon: 'zap'
   color: 'red'
 inputs:
-  strykerVersion:
+  tool:
     description: "The type of stryker that you want to run (accepted values: Stryker.NET)"
     required: true
   testProject:
