@@ -5,7 +5,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: RUN_STRYKER_NET
+  IMAGE_NAME: run-stryker-net
 
 jobs:
   docker:
