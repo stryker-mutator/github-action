@@ -1,4 +1,4 @@
-name: Create base image for Stryker.NET
+name: Stryker.NET base image
 run-name: ${{ github.actor }} is creating a new base image.
 on:
   workflow_dispatch:
