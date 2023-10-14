@@ -9,5 +9,6 @@ cd $testProject
 echo "Starting Stryker.NET run"
 dotnet stryker \
   --break-at $2  \
+  --reporter html \
   --reporter json \
   --reporter cleartext
