@@ -5,6 +5,9 @@ branding:
   icon: 'zap'
   color: 'red'
 inputs:
+  strykerVersion:
+    description: "The type of stryker that you want to run (accepted values: Stryker.NET)"
+    required: true
   testProject:
     description: "The path to the test project directory (e.g. BusinessLogic.Test/)"
     required: true
@@ -16,7 +19,8 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - name: Run Docker image
+    - name: Run Stryker.NET
+      if: ${{ inputs.strykerVersion == 'Stryker.NET' }}
       shell: bash
       run: | 
         docker run \
