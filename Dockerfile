@@ -5,6 +5,6 @@ COPY entrypoint.sh /entrypoint.sh
 RUN dotnet tool install -g dotnet-stryker
 
 RUN chmod +x entrypoint.sh
-RUN 
-# ENTRYPOINT ["/entrypoint.sh"]
+
+ENTRYPOINT ["/entrypoint.sh"]
 
