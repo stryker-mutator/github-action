@@ -7,7 +7,4 @@ echo "Changing direcotry to $testProject"
 cd $testProject
 
 echo "Starting StrykerJS run"
-# dotnet stryker \
-#   --break-at $2  \
-#   --reporter json \
-#   --reporter cleartext
+stryker run
