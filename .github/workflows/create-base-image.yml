@@ -5,7 +5,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: github-action
+  IMAGE_NAME: stryker-mutator/run-stryker-net
 
 jobs:
   docker:
