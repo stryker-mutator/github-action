@@ -4,6 +4,10 @@ This action runs [Stryker.NET](https://stryker-mutator.io/docs/stryker-net/intro
 
 ## Inputs
 
+### `strykerVersion`
+
+**Required** The version of stryker that needs to be ran. accepted values: 'Stryker.NET'
+
 ### `testProject`
 
 **Required** The path to the directory of the test project that needs to be tested by Stryker. No default.
