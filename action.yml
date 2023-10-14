@@ -11,28 +11,37 @@ inputs:
   testProject:
     description: "The path to the test project directory (e.g. BusinessLogic.Test/)"
     required: true
-  breakAt:
-    description: "When threshold break is set to anything other than 0 and the mutation score is lower than the threshold Stryker will exit with a non-zero code."
+  configFile:
+    description: "The path to the stryker config file"
     required: false
-    default: "0"
+    default: ./
 
 runs:
   using: "composite"
   steps:
-    - name: Check strykerVersion
-      if: ${{ inputs.strykerVersion != 'Stryker.NET' }}
+    - name: Check tool
+      if: ${{ inputs.tool != 'Stryker.NET' }}
       run: |
-        echo "Invalid strykerVersion. Expected 'Stryker.NET'."
+        echo "Invalid tool. Expected 'Stryker.NET' or StrykerJS."
         exit 1
       shell: bash 
 
     - name: Run Stryker.NET
-      if: ${{ inputs.strykerVersion == 'Stryker.NET' }}
+      if: ${{ inputs.tool == 'Stryker.NET' }}
       shell: bash
       run: | 
         docker run \
           -v ${{ github.workspace }}:/workspace \
           ghcr.io/stryker-mutator/run-stryker-net:11-support-strykerjs-to-be-ran-with-this-action \
           /workspace/${{ inputs.testProject }} \
-          ${{ inputs.breakAt }}  \
+          ${{ inputs.configFile }}  \
           
+    - name: Run StrykerJS
+      if: ${{ inputs.strykerVersion == 'StrykerJS' }}
+      shell: bash
+      run: | 
+        docker run \
+          -v ${{ github.workspace }}:/workspace \
+          ghcr.io/stryker-mutator/run-strykerjs:11-support-strykerjs-to-be-ran-with-this-action \
+          /workspace/${{ inputs.testProject }} \
+          ${{ inputs.configFile }}  \
