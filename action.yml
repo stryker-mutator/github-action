@@ -16,16 +16,12 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - name: LS
-      run: echo ${{ github.workspace }}
-      shell: bash
-    
     - name: Run Docker image
       shell: bash
       run: | 
         docker run \
           -v ${{ github.workspace }}:/workspace \
           ghcr.io/stryker-mutator/github-action:11-support-strykerjs-to-be-ran-with-this-action \
-          ${{ inputs.testProject }} \
+          /workspace/${{ inputs.testProject }} \
           ${{ inputs.breakAt }}  \
           
