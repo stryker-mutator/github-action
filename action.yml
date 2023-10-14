@@ -22,7 +22,7 @@ runs:
       run: | 
         docker run \
           -v ${{ github.workspace }}:/workspace \
-          ghcr.io/stryker-mutator/github-action:11-support-strykerjs-to-be-ran-with-this-action \
+          ghcr.io/stryker-mutator/run-stryker-net:11-support-strykerjs-to-be-ran-with-this-action \
           /workspace/${{ inputs.testProject }} \
           ${{ inputs.breakAt }}  \
           
