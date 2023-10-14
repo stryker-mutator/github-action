@@ -19,6 +19,13 @@ inputs:
 runs:
   using: "composite"
   steps:
+    - name: Check strykerVersion
+      if: ${{ inputs.strykerVersion != 'Stryker.NET' }}
+      run: |
+        echo "Invalid strykerVersion. Expected 'Stryker.NET'."
+        exit 1
+      shell: bash 
+
     - name: Run Stryker.NET
       if: ${{ inputs.strykerVersion == 'Stryker.NET' }}
       shell: bash
