@@ -17,6 +17,7 @@ runs:
   using: "composite"
   steps:
     - name: Run Docker image
+      if: (property == net)
       shell: bash
       run: | 
         docker run \
